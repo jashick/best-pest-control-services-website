@@ -78,6 +78,7 @@ didn't include mosquito — ask if they still sell mosquito service). Blog → /
 - ./publish.sh (staging) / ./publish.sh --live (only when approved)
 
 ## Log
+- 2026-11-25: Deployed to https://preview.catapultlocal.com/BESTPest/ (91 files). Project copied to ~/Projects/BESTPestControlServicesWebsite (git repo, main).
 - 2026-11-25: Homepage + service page titles/H1s now target Sheboygan Falls only (was Sheboygan Falls & Sheboygan County).
 - 2026-11-25: Built in a cloud session from the starter (Mac ~/Projects access was declined, so the starter came
   from GitHub). 27 pages. check.py 0 errors / 0 warnings. Screenshots 1280/390 reviewed. Pushed to GitHub.
