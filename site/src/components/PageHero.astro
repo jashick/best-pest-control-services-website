@@ -1,5 +1,5 @@
 ---
-import { site, img, img800 } from '../data/site';
+import { site, img, img800, pos } from '../data/site';
 
 interface Crumb { name: string; href: string; }
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
   heat?: boolean;     // emergency pages: --heat accent primary button + bottom rule
 }
 const {
-  eyebrow, title, sub, photo = 'hero', crumbs = [], chips = [],
+  eyebrow, title, sub, photo = 'best-pest-control-truck-sheboygan-falls', crumbs = [], chips = [],
   primary = { label: site.ctaLabel, href: site.quoteUrl },
   secondary = { label: `Call ${site.phone}`, href: `tel:${site.phoneIntl}` },
   big = false,
@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 ---
 <section class:list={['hero', { 'hero--big': big, 'hero--heat': heat }]}>
-  <img class="hero__bg" src={img(photo)} srcset={`${img800(photo)} 800w, ${img(photo)} 1600w`} sizes="100vw" alt="" fetchpriority="high" decoding="async" />
+  <img class="hero__bg" src={img(photo)} srcset={`${img800(photo)} 800w, ${img(photo)} 1600w`} sizes="100vw" style={`object-position:${pos(photo)}`} alt="" fetchpriority="high" decoding="async" />
   <div class="container">
     {crumbs.length > 0 && (
       <nav class="breadcrumbs" aria-label="Breadcrumb">

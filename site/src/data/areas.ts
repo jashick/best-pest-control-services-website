@@ -149,7 +149,7 @@ export const areas: Area[] = [
     ],
     nearby: ['Village center', 'Woodlake', 'Riverside', 'Town of Kohler', 'Sheboygan Falls', 'Sheboygan'],
     distance: 'About 5 to 10 minutes from our shop in Sheboygan Falls.',
-    photo: 'trish-and-jason-yost-owners',
+    photo: 'best-pest-control-truck-sheboygan-falls',
     gallery: ['hornet-nest-in-tree', 'technician-treating-eaves-brick-home', 'best-pest-control-technicians-three'],
     faqs: [
       { q: 'Do you serve the Village of Kohler?', a: 'Yes. Kohler is right next to Sheboygan Falls and is one of the closest places we serve.' },

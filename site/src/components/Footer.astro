@@ -18,7 +18,7 @@ const social = Object.entries(site.social).filter(([, v]) => v);
         {site.hours}
         {site.license && <><br />License #{site.license}</>}
       </p>
-      {social.length > 0 && <p class="footer__social">{social.map(([k, v]) => <a href={v} rel="noopener">{k === 'google' ? 'Google' : k[0].toUpperCase() + k.slice(1)}</a>)}</p>}
+      {social.length > 0 && <p class="footer__social">{social.map(([k, v]) => <a href={v} target="_blank" rel="noopener">{k === 'google' ? 'Google' : k[0].toUpperCase() + k.slice(1)}</a>)}</p>}
     </div>
     <div>
       <h2 class="footer__title">Services</h2>
@@ -34,7 +34,7 @@ const social = Object.entries(site.social).filter(([, v]) => v);
         <li><a href={site.quoteUrl}>{site.ctaLabel}</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/faq/">FAQ</a></li>
-        <li><a href={site.portal} rel="noopener">Customer Portal</a></li>
+        <li><a href={site.portal} target="_blank" rel="noopener">Customer Portal</a></li>
       </ul>
     </div>
   </div>

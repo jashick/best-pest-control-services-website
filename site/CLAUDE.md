@@ -61,6 +61,11 @@ didn't include mosquito — ask if they still sell mosquito service). Blog → /
 - Wanted: real photos of a tech at work inside a home, a bed bug job, a wildlife exclusion (ridge vent, one-way door),
   ant/roach treatment. Several service pages use team photos as their lead image for now.
 
+- AI PEST IMAGES (Jeremy 2026-11-25: no people on ant, cockroach, bed bug, flea, wildlife pages): Nano Banana via n8n,
+  _incoming/ai-generated/ (sources.csv has Drive file IDs). Pest/animal only, no people, no logos.
+- Hero crops: src/data/site.ts `focus` sets object-position per photo so heads stay in frame (PageHero + CtaBand).
+  Add an entry whenever a people photo is used as a hero. Kohler hero = truck (owner close-up cropped badly).
+
 ## Unconfirmed claims (confirm with Trish before launch)
 - Weekend hours: GBP Sat–Sun 10–3; old site said weekends are for urgent calls only.
 - Flea control: no old-site page; methods described generally (treat home, prep, work with vet).
@@ -78,7 +83,6 @@ didn't include mosquito — ask if they still sell mosquito service). Blog → /
 - ./publish.sh (staging) / ./publish.sh --live (only when approved)
 
 ## Log
-- 2026-11-25: Deployed to https://preview.catapultlocal.com/BESTPest/ (91 files). Project copied to ~/Projects/BESTPestControlServicesWebsite (git repo, main).
 - 2026-11-25: Homepage + service page titles/H1s now target Sheboygan Falls only (was Sheboygan Falls & Sheboygan County).
 - 2026-11-25: Built in a cloud session from the starter (Mac ~/Projects access was declined, so the starter came
   from GitHub). 27 pages. check.py 0 errors / 0 warnings. Screenshots 1280/390 reviewed. Pushed to GitHub.

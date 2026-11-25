@@ -54,6 +54,21 @@ export const ghl = {
 };
 
 // Photos live in public/images/photos/<name>.webp plus <name>-800w.webp (python3 scripts/convert_photos.py).
+// Where the important part of a photo sits (CSS object-position), used when a hero or CTA crops it.
+// People photos: keep heads in frame. Photos not listed are centered.
+export const focus: Record<string, string> = {
+  'best-pest-control-team-sheboygan-falls': '50% 22%',
+  'best-pest-control-crew-four': '50% 4%',
+  'best-pest-control-team-wide': '50% 20%',
+  'best-pest-control-technicians-three': '50% 10%',
+  'best-pest-control-crew-sheboygan-river': '50% 22%',
+  'best-pest-control-team-park-bench': '50% 35%',
+  'owners-with-service-truck-bw': '50% 30%',
+  'trish-and-jason-yost-owners': '50% 15%',
+  'trish-and-jason-yost-river': '50% 20%',
+  'best-pest-truck-family-owned': '50% 45%',
+};
+export const pos = (name: string) => focus[name] || '50% 50%';
 export const img = (name: string) => `/images/photos/${name}.webp`;
 export const img800 = (name: string) => `/images/photos/${name}-800w.webp`;
 

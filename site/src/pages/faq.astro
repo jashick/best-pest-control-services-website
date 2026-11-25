@@ -9,7 +9,7 @@ import { breadcrumbs } from '../data/schema';
 const crumbs = [{ name: 'FAQ', href: '/faq/' }];
 ---
 <Base title={`FAQ | ${site.shortName}`} description={`Answers to common pest control questions for Sheboygan County: safety for kids and pets, scheduling, inspection fees, results and service areas.`} schema={[breadcrumbs(crumbs)]}>
-  <PageHero eyebrow="FAQ" title="Frequently Asked Questions" sub={`Don’t see your question? Call ${site.phone}.`} crumbs={crumbs} />
+  <PageHero photo="technician-treating-eaves-brick-home" eyebrow="FAQ" title="Frequently Asked Questions" sub={`Don’t see your question? Call ${site.phone}.`} crumbs={crumbs} />
   <Faq faqs={faqs} title="Your Questions, Answered" />
   <CtaBand />
 </Base>

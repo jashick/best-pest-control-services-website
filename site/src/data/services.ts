@@ -138,8 +138,7 @@ export const services: Service[] = [
       },
     ],
     photos: [
-      { src: 'best-pest-control-technicians-three', alt: 'Three members of the B.E.S.T. Pest Control team in Sheboygan Falls' },
-      { src: 'technician-treating-eaves-brick-home', alt: 'Technician applying a perimeter treatment at a brick home' },
+      { src: 'ant-trail-kitchen-counter', alt: 'Trail of black ants on a kitchen countertop heading for spilled sugar' },
     ],
     faqs: [
       { q: 'Are carpenter ants dangerous to my house?', a: 'They can be. Carpenter ants hollow out wood to build nests, usually wood that is already damp or decaying. Over time that can weaken window frames, decks and other wooden parts of a house, so it is worth having a large black ant problem checked.' },
@@ -183,8 +182,7 @@ export const services: Service[] = [
       { t: 'Prevention built in', d: 'We go beyond a quick fix so the problem stays solved.' },
     ],
     photos: [
-      { src: 'best-pest-control-crew-four', alt: 'Four members of the B.E.S.T. Pest Control Services crew' },
-      { src: 'best-pest-control-truck-sheboygan-falls', alt: 'B.E.S.T. Pest Control service truck ready for a call' },
+      { src: 'cockroach-by-baseboard', alt: 'Cockroach on a kitchen floor next to the baseboard and cabinet' },
     ],
     faqs: [
       { q: 'Can cockroaches live through a Wisconsin winter?', a: 'Outdoors they struggle, but inside a heated home, apartment or restaurant they live and breed all year. That is why roach problems do not go away on their own in the winter.' },
@@ -228,8 +226,7 @@ export const services: Service[] = [
       { t: 'Trish answers the phone', d: 'Customers tell us Trish made them feel heard and explained everything clearly.' },
     ],
     photos: [
-      { src: 'trish-yost-owner-best-pest', alt: 'Trish Yost, owner of B.E.S.T. Pest Control Services' },
-      { src: 'best-pest-control-technicians-three', alt: 'B.E.S.T. Pest Control technicians' },
+      { src: 'bed-bugs-mattress-seam', alt: 'Bed bugs and eggs along the seam of a mattress' },
     ],
     faqs: [
       { q: 'How do I know if I have bed bugs?', a: 'Look for itchy bites that appear overnight, small rust-colored spots on sheets, tiny reddish-brown bugs or shed skins in mattress seams and bed frames, and sometimes a musty smell. If you are not sure, call us for an inspection.' },
@@ -272,8 +269,7 @@ export const services: Service[] = [
       { t: 'Wildlife covered too', d: 'If a raccoon or opossum is bringing fleas in, we can remove it and seal the gap.' },
     ],
     photos: [
-      { src: 'best-pest-control-crew-sheboygan-river', alt: 'B.E.S.T. Pest Control crew by the river in Sheboygan Falls' },
-      { src: 'best-pest-control-team-park-bench', alt: 'The B.E.S.T. Pest Control Services team' },
+      { src: 'fleas-in-carpet', alt: 'Fleas in carpet fibers next to a dog’s paw' },
     ],
     faqs: [
       { q: 'If I treat my pet, why do I still have fleas?', a: 'Adult fleas on your pet are only a small part of the population. Eggs, larvae and pupae live in carpet, bedding and furniture and keep hatching for weeks. Treating the home along with your pet is what ends the cycle.' },
@@ -494,8 +490,7 @@ export const services: Service[] = [
       },
     ],
     photos: [
-      { src: 'best-pest-truck-family-owned', alt: 'B.E.S.T. Pest Control Services family-owned service truck' },
-      { src: 'jason-yost-owner-best-pest', alt: 'Jason Yost, B.E.S.T. Pest Control co-owner and wildlife expert' },
+      { src: 'raccoon-in-soffit', alt: 'Raccoon peeking out of a torn soffit at a home’s roofline' },
     ],
     faqs: [
       { q: 'How much does wildlife removal cost?', a: 'An inspection fee applies, and we will go over the cost when you call. Every animal and building is different, so after the inspection we explain what we found and what removal, exclusion and any repair will involve.' },

@@ -1,13 +1,13 @@
 ---
-import { site, img } from '../data/site';
+import { site, img, pos } from '../data/site';
 interface Props { title?: string; sub?: string; photo?: string; }
 const {
   title = 'Ready to Get Started?',
   sub = `Call ${site.phone} or request a free quote online. We’ll get back to you fast.`,
-  photo = 'hero',
+  photo = 'best-pest-control-truck-sheboygan-falls',
 } = Astro.props;
 ---
-<section class="cta" style={`--cta-img:url('${img(photo)}')`}>
+<section class="cta" style={`--cta-img:url('${img(photo)}');--cta-pos:${pos(photo)}`}>
   <div class="container cta__inner">
     <h2>{title}</h2>
     <p>{sub}</p>
@@ -19,7 +19,7 @@ const {
 </section>
 
 <style>
-  .cta { color: #fff; background: linear-gradient(rgba(12,12,12,.84), rgba(12,12,12,.84)), var(--cta-img) center/cover no-repeat; padding: 96px 0; border-top: 6px solid var(--red); }
+  .cta { color: #fff; background: linear-gradient(rgba(12,12,12,.84), rgba(12,12,12,.84)), var(--cta-img) var(--cta-pos, center)/cover no-repeat; padding: 96px 0; border-top: 6px solid var(--red); }
   .cta__inner { text-align: center; max-width: 860px; }
   .cta h2 { color: #fff; font-size: clamp(36px, 5.4vw, 60px); text-transform: uppercase; }
   .cta p { font-size: 21px; margin-bottom: 30px; color: #eceae6; }
