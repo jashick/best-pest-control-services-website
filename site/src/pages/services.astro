@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import { site } from '../data/site';
+import { services } from '../data/services';
+import { breadcrumbs } from '../data/schema';
+
+const crumbs = [{ name: 'Services', href: '/services/' }];
+const list = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `${site.shortName} services`,
+  itemListElement: services.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: s.navName, url: `${site.url}/${s.slug}/` })),
+};
+---
+<Base title={`Services | ${site.shortName}`} description={`Pest control, wasp and hornet removal, bed bug and flea treatment, rodent control and exclusion, and wildlife removal in Sheboygan County, WI.`} schema={[breadcrumbs(crumbs), list]}>
+  <PageHero eyebrow="Services" photo="technician-treating-eaves-brick-home" title="Pest & Wildlife Control Services" sub="Insects, stinging insects, rodents and wildlife for homes and businesses in Sheboygan County and nearby." crumbs={crumbs} />
+  <section class="section">
+    <div class="container">
+      <div class="answer"><p>{site.shortName} offers general pest control, ant control, cockroach control, bed bug treatment, flea control, wasp, hornet and yellow jacket removal, rodent control, long-term rodent exclusion and wildlife removal for homes and businesses in Sheboygan Falls, Sheboygan, Plymouth, Kohler and across Sheboygan County and parts of Fond du Lac, Manitowoc, Calumet, Ozaukee and Washington counties.</p></div>
+      <div style="margin-top:34px"><ServiceCards /></div>
+    </div>
+  </section>
+  <CtaBand />
+</Base>

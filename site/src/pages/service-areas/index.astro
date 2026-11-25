@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { areas } from '../../data/areas';
+import { site, img800 } from '../../data/site';
+import { breadcrumbs } from '../../data/schema';
+const crumbs = [{ name: 'Service Areas', href: '/service-areas/' }];
+// Full town list from the client's old Contact/About pages (2026-11-25).
+const counties = [
+  { n: 'Sheboygan', t: 'Ada, Adell, Cascade, Cedar Grove, Elkhart Lake, Gibbsville, Glenbeulah, Greenbush, Herman, Hingham, Holland, Howards Grove, Kohler, Lima, Mitchell, Mosel, Oostburg, Plymouth, Random Lake, Rhine, Russell, Sheboygan, Sheboygan Falls, Waldo and Wilson' },
+  { n: 'Calumet', t: 'Brothertown, Calumetville, Chilton, Kiel and New Holstein' },
+  { n: 'Fond du Lac', t: 'Ashford, Auburn, Byron, Campbellsport, Eden, Empire, Fond du Lac, Kewaskum, Malone, Mount Calvary, North Fond du Lac, Pipe and Saint Cloud' },
+  { n: 'Manitowoc', t: 'Cleveland, Kiel, Manitowoc, Manitowoc Rapids, Newton, St. Nazianz, Two Rivers and Valders' },
+  { n: 'Ozaukee', t: 'Belgium, Cedarburg, Fredonia, Grafton, Newburg, Port Washington and Saukville' },
+  { n: 'Washington', t: 'Barton, Kewaskum, Newburg and West Bend' },
+];
+---
+<Base title={`Service Areas | ${site.shortName}`} description={`${site.shortName} serves all of Sheboygan County and most of Fond du Lac, Manitowoc, Calumet, Ozaukee and Washington counties. See the towns we cover.`} schema={[breadcrumbs(crumbs)]}>
+  <PageHero eyebrow="Service areas" photo="best-pest-control-truck-sheboygan-falls" title="Where We Work" sub={`Based in ${site.city}, serving ${site.serviceArea}.`} crumbs={crumbs} />
+  <section class="section">
+    <div class="container">
+      <div class="answer"><p>{site.shortName} is based at 904A Monroe St in {site.city}, {site.regionName}, and serves all of Sheboygan County and most of Calumet, Fond du Lac, Manitowoc, Ozaukee and Washington counties, from Plymouth to West Bend and Two Rivers to Grafton.</p></div>
+      <div class="acards">
+        {areas.map((a) => (
+          <a class="acard" href={`/service-areas/${a.slug}/`}>
+            <span class="acard__img"><img src={img800(a.photo)} alt="" width="800" height="600" loading="lazy" /></span>
+            <span class="acard__name">{a.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="container">
+      <h2 class="section-title">Every Town We Serve</h2>
+      <div class="counties">{counties.map((c) => <div><h3>{c.n} County</h3><p>{c.t}</p></div>)}</div>
+    </div>
+  </section>
+  <CtaBand />
+</Base>
+
+<style>
+  .counties { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 24px; }
+  .counties h3 { font-size: 24px; }
+  @media (max-width: 860px) { .counties { grid-template-columns: 1fr; } }
+  .acards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; margin-top: 34px; }
+  .acard { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; }
+  .acard__img { aspect-ratio: 16 / 10; overflow: hidden; }
+  .acard__img img { width: 100%; height: 100%; object-fit: cover; }
+  .acard__name { padding: 14px 18px; border-top: 4px solid var(--red); font-family: var(--head); font-weight: 800; font-size: 25px; text-transform: uppercase; color: var(--ink); }
+</style>

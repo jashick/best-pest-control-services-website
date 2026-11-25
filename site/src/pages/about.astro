@@ -1,0 +1,97 @@
+---
+// About page: Trish and Jason's story and the team, from the old site's About page (2026-11-25).
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site, img800 } from '../data/site';
+import { breadcrumbs } from '../data/schema';
+const crumbs = [{ name: 'About', href: '/about/' }];
+const about = { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${site.shortName}`, url: `${site.url}/about/`, about: { '@id': `${site.url}/#business` } };
+const people = [
+  { '@context': 'https://schema.org', '@type': 'Person', name: 'Trish Yost', jobTitle: 'Owner', worksFor: { '@id': `${site.url}/#business` }, image: `${site.url}${img800('trish-yost-owner-best-pest')}` },
+  { '@context': 'https://schema.org', '@type': 'Person', name: 'Jason Yost', jobTitle: 'Owner', worksFor: { '@id': `${site.url}/#business` }, image: `${site.url}${img800('jason-yost-owner-best-pest')}` },
+];
+const team = [
+  { name: 'Trish', role: 'Owner · Bug Expert', d: 'Structural Pesticide Applicator License & Certification and Mosquito Application.', photo: 'trish-yost-owner-best-pest' },
+  { name: 'Jason', role: 'Owner · Rodent & Wildlife Expert', d: 'WI Certified Contractor and Certified Ridge-Guard Installer. Structural Pesticide Applicator License & Certification and Mosquito Application.', photo: 'jason-yost-owner-best-pest' },
+];
+const crew = [
+  { name: 'Collin', role: 'Field Service Technician', d: 'Journeyman Carpenter. Structural Pesticide Applicator License & Certification and Mosquito Application.' },
+  { name: 'Tamara', role: 'Field Service Technician', d: 'Structural Pesticide Applicator License & Certification.' },
+  { name: 'Jake', role: 'Field Service Technician', d: 'Structural Pesticide Applicator License & Certification; Mosquito Application in progress.' },
+  { name: 'Hailey', role: 'Office Manager', d: 'Office & Resource Administrator. Structural Pesticide Applicator License & Certification.' },
+];
+---
+<Base title="About B.E.S.T. Pest Control | Sheboygan Falls, WI" description="Meet Trish and Jason Yost and the B.E.S.T. Pest Control team: a family-owned Sheboygan Falls pest and wildlife company founded in 2018." schema={[breadcrumbs(crumbs), about, ...people]}>
+  <PageHero photo="best-pest-control-team-sheboygan-falls" eyebrow="About us" title="Family Owned & Operated Since 2018" sub="Bug Extermination Services by Trish: personalized pest control without the corporate red tape." crumbs={crumbs} />
+  <section class="section">
+    <div class="container grid grid-2">
+      <div>
+        <div class="answer"><p>{site.description}</p></div>
+        <div class="copy">
+          <p>B.E.S.T. Pest Control Services (<strong>B</strong>ug <strong>E</strong>xtermination <strong>S</strong>ervices by <strong>T</strong>rish) was founded in 2018 by Trish Yost. Before pest control, Trish worked in the corporate world and built extensive customer service experience. With more than 10 years in the pest control industry, she prides herself and the business on giving customers personalized service without the corporate red tape.</p>
+          <p>Trish and her husband, Jason, share a genuine passion for helping others. With a journeyman millwright background and decades of hands-on experience, Jason excels at identifying and solving complex pest problems. His eye for detail and specialized training mean thorough elimination and prevention of pests in your home or business.</p>
+          <p>“We look forward to serving those near and far!” — Trish and Jason</p>
+        </div>
+      </div>
+      <figure class="photo pic"><img src={img800('trish-and-jason-yost-river')} alt="Trish and Jason Yost, owners of B.E.S.T. Pest Control Services" width="800" height="533" loading="lazy" /></figure>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="container">
+      <span class="eyebrow">Meet the team</span>
+      <h2 class="section-title">The Faces of B.E.S.T.</h2>
+      <div class="owners">
+        {team.map((t) => (
+          <div class="person">
+            <img src={img800(t.photo)} alt={`${t.name}, ${t.role.split(' · ')[0].toLowerCase()} of B.E.S.T. Pest Control`} width="533" height="531" loading="lazy" />
+            <div><h3>{t.name}</h3><p class="role">{t.role}</p><p>{t.d}</p></div>
+          </div>
+        ))}
+      </div>
+      <div class="grid grid-4 crew">{crew.map((c) => <div class="card"><h3>{c.name}</h3><p class="role">{c.role}</p><p>{c.d}</p></div>)}</div>
+      <figure class="photo wide"><img src={img800('best-pest-control-team-park-bench')} srcset={`${img800('best-pest-control-team-park-bench')} 800w, /images/photos/best-pest-control-team-park-bench.webp 1600w`} sizes="(max-width: 1180px) 100vw, 1140px" alt="The full B.E.S.T. Pest Control Services team in a Sheboygan Falls park" width="1100" height="732" loading="lazy" /></figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2 top">
+      <div>
+        <span class="eyebrow">Who we serve</span>
+        <h2 class="section-title">Homes &amp; Businesses</h2>
+        <p>We serve homeowners, apartment complexes, restaurants, bars and industrial and commercial properties. Every home and business is different, so our pest programs are customized to your situation, whether you need ongoing prevention or a one-time removal.</p>
+        <ul class="checks">
+          <li>Household pests: ants, spiders, roaches, beetles, bed bugs and other insects</li>
+          <li>Yard and structural pests: carpenter ants, boxelder beetles and more</li>
+          <li>Stinging insects: yellow jackets, hornets and wasps</li>
+          <li>Rodents: mice, rats, voles and shrews</li>
+          <li>Wildlife: raccoons, moles, squirrels, skunks, gophers, opossums, muskrats and more</li>
+        </ul>
+      </div>
+      <div>
+        <span class="eyebrow">Where we serve</span>
+        <h2 class="section-title">Plymouth to West Bend</h2>
+        <p>We work from Plymouth to West Bend and Two Rivers to Grafton, and everywhere in between: all of Sheboygan County and most of Calumet, Fond du Lac, Manitowoc, Ozaukee and Washington counties.</p>
+        <p>Sheboygan County voters named us runner-up for Best of Sheboygan County, and Fond du Lac County voters named us Best Pest Company in the 2024 Community’s Choice Awards. Thank you!</p>
+        <a class="btn btn--outline" href="/service-areas/">See Our Service Areas</a>
+      </div>
+    </div>
+  </section>
+  <CtaBand photo="best-pest-control-crew-sheboygan-river" />
+</Base>
+
+<style>
+  .copy { margin-top: 24px; }
+  .pic { margin: 0; aspect-ratio: 3 / 2; }
+  .pic img, .wide img { width: 100%; height: 100%; object-fit: cover; }
+  .owners { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 30px 0; }
+  .person { display: grid; grid-template-columns: 180px 1fr; gap: 22px; align-items: center; background: #fff; border-radius: var(--radius); padding: 18px; border: 1px solid var(--line); }
+  .person img { border-radius: var(--radius); aspect-ratio: 1; object-fit: cover; }
+  .person h3, .card h3 { margin-bottom: 2px; }
+  .role { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--red-text); margin-bottom: 8px; }
+  .crew { margin-bottom: 34px; }
+  .wide { margin: 0; aspect-ratio: 3 / 2; border-radius: var(--radius); overflow: hidden; }
+  .top { align-items: start; }
+  @media (max-width: 860px) { .owners { grid-template-columns: 1fr; } .person { grid-template-columns: 120px 1fr; } }
+</style>

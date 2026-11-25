@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../data/site';
+import { faqs } from '../data/faqs';
+import { breadcrumbs } from '../data/schema';
+const crumbs = [{ name: 'FAQ', href: '/faq/' }];
+---
+<Base title={`FAQ | ${site.shortName}`} description={`Answers to common pest control questions for Sheboygan County: safety for kids and pets, scheduling, inspection fees, results and service areas.`} schema={[breadcrumbs(crumbs)]}>
+  <PageHero eyebrow="FAQ" title="Frequently Asked Questions" sub={`Don’t see your question? Call ${site.phone}.`} crumbs={crumbs} />
+  <Faq faqs={faqs} title="Your Questions, Answered" />
+  <CtaBand />
+</Base>

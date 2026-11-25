@@ -1,0 +1,38 @@
+# Apache (SiteGround) settings: https/www + 301s for every URL in the old Weebly sitemap.
+RewriteEngine On
+
+# Force https + www (match site.url)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^bestpestkillerservice\.com$ [NC]
+RewriteRule ^(.*)$ https://www.bestpestkillerservice.com/$1 [R=301,L]
+
+# Old Weebly site (bestpestkillerservice.com sitemap, 2026-11-25) -> new pages
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^pest-control-services-sheboygan-falls-wi\.html$ /services/ [R=301,L]
+RewriteRule ^common-household-pest-control-sheboygan-falls-wi\.html$ /general-pest-control/ [R=301,L]
+RewriteRule ^(ants|ants1)\.html$ /ant-control/ [R=301,L]
+RewriteRule ^cockroach-control-sheboygan-falls-wi\.html$ /cockroach-control/ [R=301,L]
+RewriteRule ^bed-bug-removal-sheboygan-falls-wi\.html$ /bed-bug-treatment/ [R=301,L]
+RewriteRule ^wasps-hornets-yellow-jackets\.html$ /stinging-insect-removal/ [R=301,L]
+RewriteRule ^rodent-removal-sheboygan-falls-wi(-336887)?\.html$ /rodent-control/ [R=301,L]
+RewriteRule ^wildlife-removal-sheboygan-falls-wi\.html$ /wildlife-removal/ [R=301,L]
+RewriteRule ^(mosquito-control|springtail-control|pantry-pest-control|beetle-control|small-fly-control)-sheboygan-falls-wi\.html$ /general-pest-control/ [R=301,L]
+RewriteRule ^(contact-sheboygan-falls-wi|contact-us)\.html$ /get-a-quote/ [R=301,L]
+RewriteRule ^about\.html$ /about/ [R=301,L]
+RewriteRule ^faqs\.html$ /faq/ [R=301,L]
+RewriteRule ^privacy-policy\.html$ /privacy/ [R=301,L]
+RewriteRule ^(pest-id|careers)\.html$ /about/ [R=301,L]
+RewriteRule ^the-best-blog/preparing-for-winter-in-wisconsin-fall-pest-prevention-and-how-rodents-move-indoors/?$ /rodent-exclusion/ [R=301,L]
+RewriteRule ^the-best-blog/?.*$ /general-pest-control/ [R=301,L]
+RewriteRule ^the-best-blog\.html$ /general-pest-control/ [R=301,L]
+RewriteRule ^sitemap\.xml$ /sitemap-index.xml [R=301,L]
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
