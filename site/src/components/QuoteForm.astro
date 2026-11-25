@@ -1,30 +1,43 @@
 ---
-// Quote card: a button that opens the form (ghl.quoteForm) in a new tab, plus call/email. No embed (Jeremy 2026-11-25).
-import { site, ghl } from '../data/site';
+// Simple quote form (Jeremy 2026-11-25): name, phone, email, zip, message. Posts to public/send-quote.php (SiteGround PHP),
+// which emails the request and redirects to /thank-you/. Needs PHP hosting; not the JotForm or GHL anymore.
+import { site } from '../data/site';
 ---
 <div class="quote" id="quote-form">
   <div class="quote__head">
     <h2>{site.ctaLabel}</h2>
     <p>Tell us what you need. We’ll get back to you quickly.</p>
   </div>
-  <div>
-    {ghl.quoteForm && (
-      <>
-        <p class="quote__lead">Fill out our short request form. It opens in a new tab.</p>
-        <a class="btn btn--red quote__call" href={ghl.quoteForm} target="_blank" rel="noopener">Open the Request Form</a>
-        <p class="quote__lead">Or call or text us:</p>
-      </>
-    )}
-    {!ghl.quoteForm && <p class="quote__lead">The fastest way to get help is a phone call:</p>}
-    <a class:list={['btn', 'quote__call', ghl.quoteForm ? 'btn--dark' : 'btn--red']} href={`tel:${site.phoneIntl}`}>Call {site.phone}</a>
-    {site.email && <p class="quote__alt">Prefer email? Write to <a href={`mailto:${site.email}`}>{site.email}</a>.</p>}
-  </div>
+  <p class="quote__err" id="quote-err" hidden>Please check your name, phone, email and 5-digit zip code, then send again.</p>
+  <form class="qf" action="/send-quote.php" method="post">
+    <label>Name<input type="text" name="name" autocomplete="name" required maxlength="100" /></label>
+    <div class="qf__row">
+      <label>Phone<input type="tel" name="phone" autocomplete="tel" required maxlength="40" /></label>
+      <label>Zip code<input type="text" name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}(-[0-9]{4})?" required maxlength="10" /></label>
+    </div>
+    <label>Email<input type="email" name="email" autocomplete="email" required maxlength="120" /></label>
+    <label>What are you dealing with?<textarea name="message" rows="5" maxlength="4000" placeholder="Tell us what you're seeing and where (wasps by the garage, mice in the basement…)"></textarea></label>
+    <label class="qf__hp" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+    <button class="btn btn--red qf__send" type="submit">Send My Request</button>
+    <p class="quote__alt">Or call or text <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>{site.email && <> · <a href={`mailto:${site.email}`}>{site.email}</a></>}</p>
+  </form>
+  <script is:inline>if (/[?&]error=1/.test(location.search)) document.getElementById('quote-err').hidden = false;</script>
 </div>
 
 <style>
   .quote { background: #fff; border-top: 6px solid var(--red); border-radius: var(--radius); box-shadow: 0 18px 44px rgba(0,0,0,.16); padding: 30px; color: var(--text); }
   .quote__head h2 { font-size: 38px; text-transform: uppercase; margin-bottom: 4px; }
   .quote__head p { color: var(--muted); }
+  .qf { display: grid; gap: 14px; margin-top: 8px; }
+  .qf label { display: grid; gap: 5px; font-weight: 600; color: var(--ink); font-size: 16px; }
+  .qf input, .qf textarea { font: inherit; font-size: 17px; padding: 12px 14px; border: 2px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--ink); width: 100%; }
+  .qf input:focus, .qf textarea:focus { outline: none; border-color: var(--ink); }
+  .qf textarea { resize: vertical; }
+  .qf__row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; }
+  .qf__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .qf__send { width: 100%; font-size: 24px; padding: 15px 20px; }
+  .quote__err { background: #fdecea; color: #8a1c12; border-radius: var(--radius); padding: 10px 14px; font-size: 16px; margin: 8px 0 0; }
+  @media (max-width: 420px) { .qf__row { grid-template-columns: 1fr; } }
   .quote__lead { font-weight: 600; color: var(--ink); margin-bottom: 12px; }
   .quote__call { width: 100%; font-size: 26px; padding: 16px 20px; margin-bottom: 18px; }
   .quote__alt { font-size: 16px; color: var(--muted); margin: 0; }
