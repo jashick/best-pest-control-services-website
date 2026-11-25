@@ -1,27 +1,24 @@
 ---
-// GoHighLevel quote form. Set ghl.quoteForm in src/data/site.ts to switch it on; until then a call card shows.
+// Quote card: a button that opens the form (ghl.quoteForm) in a new tab, plus call/email. No embed (Jeremy 2026-11-25).
 import { site, ghl } from '../data/site';
-const formId = ghl.quoteForm.split('/').pop();
-// Only GHL forms need GHL's embed script (it resizes the iframe); other forms (e.g. JotForm) load as a plain iframe.
-const isGhl = /leadconnectorhq|msgsndr|\/widget\/form\//.test(ghl.quoteForm);
 ---
 <div class="quote" id="quote-form">
   <div class="quote__head">
     <h2>{site.ctaLabel}</h2>
     <p>Tell us what you need. We’ll get back to you quickly.</p>
   </div>
-  {ghl.quoteForm ? (
-    <>
-      <iframe src={ghl.quoteForm} id={`inline-${formId}`} title={site.ctaLabel} style={`width:100%;height:${ghl.quoteFormHeight}px;border:none;border-radius:4px`} data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-id={formId} loading="lazy"></iframe>
-      {isGhl && <script is:inline src={ghl.embedScript} defer></script>}
-    </>
-  ) : (
-    <div>
-      <p class="quote__lead">The fastest way to get help is a phone call:</p>
-      <a class="btn btn--red quote__call" href={`tel:${site.phoneIntl}`}>Call {site.phone}</a>
-      {site.email && <p class="quote__alt">Prefer email? Write to <a href={`mailto:${site.email}`}>{site.email}</a>.</p>}
-    </div>
-  )}
+  <div>
+    {ghl.quoteForm && (
+      <>
+        <p class="quote__lead">Fill out our short request form. It opens in a new tab.</p>
+        <a class="btn btn--red quote__call" href={ghl.quoteForm} target="_blank" rel="noopener">Open the Request Form</a>
+        <p class="quote__lead">Or call or text us:</p>
+      </>
+    )}
+    {!ghl.quoteForm && <p class="quote__lead">The fastest way to get help is a phone call:</p>}
+    <a class:list={['btn', 'quote__call', ghl.quoteForm ? 'btn--dark' : 'btn--red']} href={`tel:${site.phoneIntl}`}>Call {site.phone}</a>
+    {site.email && <p class="quote__alt">Prefer email? Write to <a href={`mailto:${site.email}`}>{site.email}</a>.</p>}
+  </div>
 </div>
 
 <style>
