@@ -41,8 +41,16 @@ const team = [
     <div class="container">
       <span class="eyebrow">Meet the team</span>
       <h2 class="section-title">The Faces of B.E.S.T.</h2>
+      <div class="team team--owners">
+        {team.slice(0, 2).map((t) => (
+          <div class="person">
+            <img src={img800(t.photo)} alt={`${t.name}, ${t.role.split(' · ')[0].toLowerCase()} at B.E.S.T. Pest Control Services`} width="400" height="400" loading="lazy" />
+            <h3>{t.name}</h3><p class="role">{t.role}</p><p>{t.d}</p>
+          </div>
+        ))}
+      </div>
       <div class="team">
-        {team.map((t) => (
+        {team.slice(2).map((t) => (
           <div class="person">
             <img src={img800(t.photo)} alt={`${t.name}, ${t.role.split(' · ')[0].toLowerCase()} at B.E.S.T. Pest Control Services`} width="400" height="400" loading="lazy" />
             <h3>{t.name}</h3><p class="role">{t.role}</p><p>{t.d}</p>
@@ -85,14 +93,15 @@ const team = [
   .copy { margin-top: 24px; }
   .pic { margin: 0; aspect-ratio: 3 / 2; }
   .pic img, .wide img { width: 100%; height: 100%; object-fit: cover; }
-  .team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; margin: 30px 0 36px; }
+  .team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px; margin: 0 0 36px; }
+  .team--owners { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; margin: 30px auto 26px; }
   .person { background: #fff; border-radius: var(--radius); padding: 26px 22px; border: 1px solid var(--line); text-align: center; }
   .person img { width: 168px; height: 168px; margin: 0 auto 16px; border-radius: 50%; object-fit: cover; border: 5px solid var(--red); }
   .person h3 { margin-bottom: 2px; }
   .person p:last-child { margin-bottom: 0; font-size: 16px; }
   .role { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--red-text); margin-bottom: 8px; }
-  @media (max-width: 900px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 560px) { .team { grid-template-columns: 1fr; } }
+  @media (max-width: 1000px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .team, .team--owners { grid-template-columns: 1fr; } }
   .wide { margin: 0; aspect-ratio: 3 / 2; border-radius: var(--radius); overflow: hidden; }
   .top { align-items: start; }
   .badges { display: flex; gap: 18px; margin: 10px 0 22px; }
