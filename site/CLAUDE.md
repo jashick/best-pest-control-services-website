@@ -19,8 +19,11 @@ Black + B.E.S.T. yellow (#ffcc00, from the logo), Barlow / Barlow Condensed. Use
   carpenter), Tamara (tech), Jake (tech), Hailey (office manager). All listed with structural pesticide applicator
   license & certification.
 - "More than 27 years in maintenance, construction and facilities management" (old homepage, exclusion section).
-- Awards: Best Pest Company, 2024 Community's Choice Awards, Best of Fond du Lac County (GBP "1st place" graphic);
-  2025 Community's Choice badge on old site (placement unknown); Runner-up Best of Sheboygan County (year unknown).
+- Awards (badges in public/images/brand): 2024 and 2025 Official Community's Choice Awards, Best of Fond du Lac.
+  2024 = Best Pest Company (GBP "1st place" graphic). 2025 category/placement unknown, so copy only shows the badge.
+  NOTE: the old site's 2025 badge file is named "runner-up-best-of-sheboygan-county" but the badge says Best of Fond du Lac;
+  there is NO Sheboygan County award on the site.
+- Careers (old careers page): hiring Full-Time Service Technicians + CSRs; apply = JotForm 260464677113054 → /careers/.
 - Rodent and wildlife: "An inspection fee applies; we'll go over the cost when you call." (old site)
 - Email support@akillerservice.com (Jeremy). Customer portal portal.gorilladesk.com/bestpestkillerservice.
 - Quote form = their existing JotForm (241428861171052) until a GHL form exists.
@@ -44,7 +47,7 @@ Primary category: Pest control service → Home (/), "Pest Control in Sheboygan 
 Secondary: Animal control service → /wildlife-removal/
 Areas (Jeremy's list) → /service-areas/<slug>/: sheboygan, plymouth, kohler, kiel, fond-du-lac, manitowoc, chilton,
   port-washington, saukville (9 service sections each). Full county/town list on /service-areas/.
-Other: /about/ /services/ /service-areas/ /faq/ /get-a-quote/ /privacy/ /thank-you/
+Other: /about/ /careers/ /services/ /service-areas/ /faq/ /get-a-quote/ /privacy/ /thank-you/
 
 ## Redirects (public/.htaccess): every URL in the old Weebly sitemap
 Mosquito, springtail, pantry pest, beetle and small fly pages → /general-pest-control/ (no own pages; Jeremy's list

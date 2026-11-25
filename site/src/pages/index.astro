@@ -59,8 +59,8 @@ const why = [
           <strong>{site.rating.value} ★★★★★</strong>
           <span>{site.rating.count} Google reviews</span>
         </a>
-        <div class="proof__item"><strong>Best Pest Company</strong><span>2024 Community’s Choice Awards, Best of Fond du Lac County</span></div>
-        <div class="proof__item"><strong>Runner-up</strong><span>Best of Sheboygan County</span></div>
+        <div class="proof__item proof__badge"><img src="/images/brand/community-choice-2024-best-of-fond-du-lac.png" alt="2024 Official Community's Choice Awards, Best of Fond du Lac badge" width="500" height="500" loading="lazy" /><div><strong>Best Pest Company</strong><span>2024 Community’s Choice Awards, Best of Fond du Lac</span></div></div>
+        <div class="proof__item proof__badge"><img src="/images/brand/community-choice-2025-best-of-fond-du-lac.png" alt="2025 Official Community's Choice Awards, Best of Fond du Lac badge" width="500" height="500" loading="lazy" /><div><strong>Community’s Choice</strong><span>2025 Official Community’s Choice Awards, Best of Fond du Lac</span></div></div>
       </div>
     </div>
   </section>
@@ -112,6 +112,8 @@ const why = [
   .proof__item { display: block; background: var(--ink); color: #fff; border-radius: var(--radius); padding: 22px 24px; text-decoration: none; border-left: 6px solid var(--red); }
   .proof__item strong { display: block; font-family: var(--head); font-size: 28px; color: var(--red); text-transform: uppercase; line-height: 1.1; }
   .proof__item span { font-size: 16px; color: #ddd; }
+  .proof__badge { display: flex; align-items: center; gap: 16px; }
+  .proof__badge img { width: 74px; height: auto; flex: none; }
   @media (max-width: 760px) { .proof { grid-template-columns: 1fr; } }
   .quote-wrap { max-width: 880px; }
   .testimonial { margin: 0; text-align: center; }

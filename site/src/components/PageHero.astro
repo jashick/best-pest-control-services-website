@@ -34,7 +34,7 @@ const {
     <h1>{title}</h1>
     {sub && <p class="hero__sub">{sub}</p>}
     <div class="btn-row">
-      <a class:list={['btn', heat ? 'btn--heat' : 'btn--red']} href={primary.href}>{primary.label}</a>
+      <a class:list={['btn', heat ? 'btn--heat' : 'btn--red']} href={primary.href} target={primary.href.startsWith('http') ? '_blank' : undefined} rel={primary.href.startsWith('http') ? 'noopener' : undefined}>{primary.label}</a>
       {secondary && <a class="btn btn--ghost" href={secondary.href}>{secondary.label}</a>}
     </div>
     {chips.length > 0 && <ul class="hero__chips">{chips.map((c) => <li>{c}</li>)}</ul>}
